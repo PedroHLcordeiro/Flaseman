@@ -57,7 +57,11 @@ Código
 relatório e recomendação para salvar o relatório.
 * motivações para guardar o relatório com seus parâmetros
 
-## ESSA IA tem OBJETIVO E CAPACIDADE DE SUBSTITUIR OS PROFESSORES?
+```bash
+Código
+```
+
+## ESSA IA TEM OBJETIVO E CAPACIDADE DE SUBSTITUIR OS PROFESSORES?
 matemática; probabilidades e limitações.
 Multiplas fontes de aprendizado
 
@@ -85,4 +89,7 @@ Código para evitar alucinações
 * https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br
 * https://conexao.pucminas.br/blog/dicas/tecnica-feynman/
 * https://www.youtube.com/watch?v=ks0lH-4H0sA&ab_channel=SocraticaPortugu%C3%AAs
+* https://www.bbc.com/portuguese/noticias/2015/09/150816_alzheimer_perguntas_pai
+* https://www.youtube.com/watch?v=JA40rVEzwyY&ab_channel=UniversoNarrado
+* https://www.youtube.com/watch?v=bVoXbbWreSY&ab_channel=IncantatoNeuropsicologia
 
