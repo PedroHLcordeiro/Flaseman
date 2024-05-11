@@ -47,6 +47,7 @@ relatório e recomendação para salvar o relatório.
 
 ## A IA VAI SUBSTITUIR OS PROFESSORES?
 matemática; probabilidades e limitações.
+Multiplas fontes de aprendizado
 
 ```bash
 Código para evitar alucinações
