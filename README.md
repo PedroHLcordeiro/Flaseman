@@ -43,6 +43,10 @@ Código
 
 * Flashcards e a revisão
 
+```bash
+Código para evitar alucinações
+```
+
 ## ENSINAR É APRENDER
 Richard Feyn"man", 
 
