@@ -1,0 +1,160 @@
+import pandas as pd
+import numpy as np
+import torch
+from transformers import BertModel, BertTokenizer
+from sklearn.metrics.pairwise import cosine_similarity
+import google.generativeai as genai
+
+# Chave de API do Google
+GOOGLE_API_KEY = "Chave_gemini"
+
+# Configurar o cliente GenAI
+genai.configure(api_key=GOOGLE_API_KEY)
+
+# Carregar o modelo pré-treinado
+model_name = 'bert-base-uncased'  # Você pode escolher outros modelos, se desejar
+tokenizer = BertTokenizer.from_pretrained(model_name)
+model = BertModel.from_pretrained(model_name)
+
+# Função para obter embeddings de texto usando BERT
+def get_bert_embeddings(text):
+    # Tokenizar o texto e converter para IDs de tokens
+    inputs = tokenizer(text, return_tensors='pt', padding=True, truncation=True)
+
+    # Passar os IDs de tokens para o modelo BERT para obter os embeddings
+    with torch.no_grad():
+        outputs = model(**inputs)
+
+    # Retornar os embeddings da última camada oculta
+    embeddings = outputs.last_hidden_state.mean(dim=1).squeeze().tolist()
+    return embeddings
+
+# Definir a função gerar_e_buscar_consulta
+def gerar_e_buscar_consulta(consulta, base):
+    """Gera embeddings para a consulta e busca os documentos mais semelhantes."""
+    consulta_embedding = get_bert_embeddings(consulta)
+    base["Similaridade"] = base["Embeddings"].apply(lambda x: cosine_similarity(np.array(consulta_embedding).reshape(1, -1), np.array(x).reshape(1, -1))[0][0])
+    return base.sort_values(by="Similaridade", ascending=False)
+
+# Adicionar o DataFrame de documentos ao código
+documentos = [
+    "O primeiro passo é sempre o mais importante.",
+    "A constância é fundamental para alcançar seus objetivos.",
+    "Democratizar a educação é essencial para o futuro da sociedade.",
+    "Flaseman é uma homenagem a modelos de aprendizado.",
+    "EMOÇÕES AJUDAM A APRENDER.",
+    "TOME NOTAS. Caderno de erros. Explorar suas fraquezas te dá a clareza de onde se fortalecer.",
+    "Richard Feynman, famoso cientista e ganhador do nobel, tinha diversas habilidades.",
+    "CURVA DE ESQUECIMENTO. Flashcards e a revisão de acordo com um sistema de espaçamento.",
+    "ENSINAR É APRENDER. A técnica de estudos elaborada por Feynman.",
+    "Relatório de aprendizado ao final de cada conversa.",
+]
+
+embeddings_documentos = [get_bert_embeddings(doc) for doc in documentos]
+
+df = pd.DataFrame({'Documento': documentos, 'Embeddings': embeddings_documentos})
+
+# Exemplo de uso
+consulta = "Como trocar as marchas do meu Googlecar?"
+resultados = gerar_e_buscar_consulta(consulta, df)
+print(resultados)
+
+
+def evitar_alucinacoes(texto):
+    """Verifica se o texto gerado é consistente com os documentos na base.
+    
+    Args:
+        texto: O texto gerado pelo modelo de linguagem.
+    
+    Returns:
+        True se o texto for consistente, False caso contrário.
+    """
+    # Implemente sua lógica de verificação de consistência aqui.
+    # Por exemplo, você pode comparar o texto gerado com os embeddings
+    # dos documentos na base e verificar se há similaridade.
+    return True  # Substitua por sua lógica de verificação
+
+
+def ensinar_para_crianca(conceito):
+    """Explica o conceito como se estivesse ensinando para uma criança.
+    
+    Args:
+        conceito: O conceito a ser explicado.
+    
+    Returns:
+        Uma explicação simplificada do conceito.
+    """
+    # Implemente sua lógica de simplificação de conceitos aqui.
+    return "Explicação simplificada do conceito: " + conceito
+
+
+def gerar_relatorio_aprendizado(historico_conversa):
+    """Gera um relatório resumindo o aprendizado da conversa.
+    
+    Args:
+        historico_conversa: O histórico da conversa com o usuário.
+    
+    Returns:
+        Um relatório de aprendizado.
+    """
+    # Implemente sua lógica de geração de relatório aqui.
+    return "Relatório de aprendizado:\n" + historico_conversa
+
+
+def agendamento_revisao(assunto, data_inicial):
+    """Agenda revisões do assunto com base na curva de esquecimento.
+    
+    Args:
+        assunto: O assunto a ser revisado.
+        data_inicial: A data da primeira revisão.
+    
+    Returns:
+        Uma lista de datas de revisão.
+    """
+    # Implemente sua lógica de agendamento de revisões aqui.
+    return ["Lista de datas de revisão para " + assunto]
+
+
+def fornecer_feedback(resposta_usuario, resposta_correta):
+    """Fornece feedback sobre a resposta do usuário.
+    
+    Args:
+        resposta_usuario: A resposta fornecida pelo usuário.
+        resposta_correta: A resposta correta.
+    
+    Returns:
+        Um feedback personalizado para o usuário.
+    """
+    # Implemente sua lógica de feedback aqui.
+    if resposta_usuario == resposta_correta:
+        return "Parabéns, você acertou!"
+    else:
+        return "Tente novamente. A resposta correta é: " + resposta_correta
+
+
+def simular_personalidade_divertida(texto):
+    """Adiciona um toque divertido e analogias ao texto.
+    
+    Args:
+        texto: O texto a ser modificado.
+    
+    Returns:
+        O texto com um toque divertido.
+    """
+    # Implemente sua lógica para tornar o texto divertido aqui.
+    return "😁 " + texto + " 🚀"
+
+
+def registrar_historico(data, tempo_resposta, capacidade_memorizacao):
+    """Registra dados relevantes da interação para análise posterior.
+    
+    Args:
+        data: A data da interação.
+        tempo_resposta: O tempo que o usuário levou para responder.
+        capacidade_memorizacao: Uma medida da capacidade de memorização do usuário.
+    
+    Returns:
+        Um registro da interação.
+    """
+    # Implemente sua lógica de registro de histórico aqui.
+    return {"data": data, "tempo_resposta": tempo_resposta, "capacidade_memorizacao": capacidade_memorizacao}
