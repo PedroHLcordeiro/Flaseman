@@ -1,0 +1,61 @@
+def interagir_com_usuario():
+    print("Bem-vindo! Vamos começar a interação.")
+
+    while True:
+        consulta = input("Por favor, faça sua consulta ou digite 'sair' para encerrar: ")
+
+        if consulta.lower() == "sair":
+            print("Obrigado por usar o sistema. Até mais!")
+            break
+
+        # Gerar resultados da consulta
+        resultados = gerar_e_buscar_consulta(consulta, df)
+
+        # Exibir resultados
+        print("Aqui estão os documentos mais relevantes para a sua consulta:\n")
+        print(resultados)
+
+        # Oferecer opções adicionais
+        opcao = input("Deseja fazer mais alguma coisa? (sim/não): ")
+
+        if opcao.lower() == "não":
+            print("Obrigado por usar o sistema. Até mais!")
+            break
+        elif opcao.lower() == "sim":
+            opcao2 = input("Por favor, escolha uma opção:\n"
+                           "1. Explicar um conceito para uma criança.\n"
+                           "2. Gerar um relatório de aprendizado.\n"
+                           "3. Agendar revisões.\n"
+                           "4. Fornecer feedback.\n"
+                           "5. Adicionar personalidade divertida aos textos.\n"
+                           "Digite o número da opção desejada ou 'sair' para encerrar: ")
+
+            if opcao2 == "1":
+                conceito = input("Por favor, digite o conceito que deseja explicar: ")
+                explicacao = ensinar_para_crianca(conceito)
+                print(explicacao)
+            elif opcao2 == "2":
+                historico_conversa = input("Por favor, digite o histórico da conversa com o usuário: ")
+                relatorio = gerar_relatorio_aprendizado(historico_conversa)
+                print(relatorio)
+            elif opcao2 == "3":
+                assunto = input("Por favor, digite o assunto para o qual deseja agendar revisões: ")
+                data_inicial = input("Por favor, digite a data da primeira revisão (formato: YYYY-MM-DD): ")
+                datas_revisao = agendamento_revisao(assunto, data_inicial)
+                print("Datas de revisão agendadas:")
+                for data in datas_revisao:
+                    print(data)
+            elif opcao2 == "4":
+                resposta_usuario = input("Por favor, digite a resposta fornecida pelo usuário: ")
+                resposta_correta = input("Por favor, digite a resposta correta: ")
+                feedback = fornecer_feedback(resposta_usuario, resposta_correta)
+                print(feedback)
+            elif opcao2 == "5":
+                texto = input("Por favor, digite o texto que deseja tornar mais divertido: ")
+                texto_divertido = simular_personalidade_divertida(texto)
+                print(texto_divertido)
+        else:
+            print("Opção inválida. Por favor, tente novamente.")
+
+# Chamar a função para iniciar a interação
+interagir_com_usuario()
