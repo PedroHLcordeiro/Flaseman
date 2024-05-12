@@ -29,14 +29,42 @@ Levando isso em conta, e de acordo com artigos dientíficos que consolidam essa 
 
 
 ```bash
-Código
+def simular_personalidade_divertida(texto):
+    """Adiciona um toque divertido e analogias ao texto.
+    
+    Args:
+        texto: O texto a ser modificado.
+    
+    Returns:
+        O texto com um toque divertido e entusiasmado.
+    """
+    # Adicionando analogias e entusiasmo ao texto
+    analogia = "Lembra daquele professor de história, o Flávio? Ele era como um marciano, nos levando em aventuras incríveis até Marte! Assim como ele tornava as aulas mais divertidas e envolventes, vamos deixar nossos chats cheios de entusiasmo e diversão! 🚀👽"
+    texto_divertido = analogia + "\n" + "😁 " + texto + " 🚀"
+
+    return texto_divertido
 ```
 ## CONSTÂNCIA É TUDO
 Ro"se"nir, é uma professora de português, que também tive o prazer de ter sido orientado por ela no ensino fundamental, por muito tempo eu não entendia o porquê de ser tão complicado focar em português para mim, tive dificuldades em me concentrar, pois não gostava da matéria, bem antes dessa professora, entretanto, faz-se necessário aprender determinados assuntos para a vida, e com essa professora eu aprendi a importância da disciplina, ela sempre mandava trabalhos para a casa e evidenciava nossas potenciais habilidades, assim, nos incentivando a sempre manter o fluxo de estudos, por vezes ela também passava desafios durante as aulas, nos engajando ainda mais nos temas propostos.
 Essa então, é mais uma estratágia para agregar a nossa solução de aprendizado, vamos levar em conta cronogramas definidos pelo usuário, desafios técnicos explícitos ou implicitos na conversa e feedbacks para agregar e incentivar a evolução do aluno.
 
 ```bash
-Código
+def gerar_relatorio_aprendizado(historico_conversa):
+    """Gera um relatório resumindo o aprendizado da conversa.
+    
+    Args:
+        historico_conversa: O histórico da conversa com o usuário.
+    
+    Returns:
+        Um relatório de aprendizado.
+    """
+    # Adicionando a história da professora Rosênir e mencionando a importância da disciplina
+    relatorio = "Lembra da professora Rosênir? Ela nos ensinou a importância da disciplina e do constante fluxo de estudos. Assim como ela, vamos manter um cronograma definido, enfrentar desafios técnicos e oferecer feedbacks para incentivar sua evolução! 💪📚"
+
+    # Adicionando o histórico da conversa
+    relatorio += "\n\n" + "Histórico da Conversa:\n" + historico_conversa
+
+    return relatorio
 ```
 ## CURVA DE ESQUECIMENTO
 
@@ -46,7 +74,25 @@ Código
 De acordo com um sistema de espaçamento, definir a intensidade de repetição de determinados assuntos de forma dinâmica, para estimular a consolidação desse aprendizado.
 
 ```bash
-Código para evitar alucinações
+def agendamento_revisao(assunto, data_inicial):
+    """Agenda revisões do assunto com base na curva de esquecimento.
+    
+    Args:
+        assunto: O assunto a ser revisado.
+        data_inicial: A data da primeira revisão.
+    
+    Returns:
+        Uma lista de datas de revisão.
+    """
+    # Adicionando a explicação sobre a curva de esquecimento e o uso de flashcards
+    explicacao = "<img src='https://github.com/PedroHLcordeiro/Flaseman/assets/96852030/96f7ba13-6734-4616-b74f-514e97bb41d8' width='300' height='200'>\n"
+    explicacao += "Para revisar o assunto '" + assunto + "', vamos usar flashcards e um sistema de espaçamento para determinar a intensidade de repetição. Isso ajuda a consolidar o aprendizado de forma eficaz!\n\n"
+
+    # Aqui você pode implementar a lógica para calcular as datas de revisão com base na curva de esquecimento
+    # e retornar uma lista de datas de revisão
+    datas_revisao = ["Lista de datas de revisão para " + assunto]
+
+    return explicacao + "\n".join(datas_revisao)
 ```
 
 ## ENSINAR É APRENDER
@@ -55,7 +101,21 @@ Richard Feyn"man", famoso cientista e ganhador do nobel, tinha diversas habilida
 <img src="https://github.com/PedroHLcordeiro/Flaseman/assets/96852030/20210087-82a5-422b-a404-b6ca4bd22ab3" width="400" height="300">
 
 ```bash
-Código
+def ensinar_feynman(conceito):
+    """Explica a técnica de estudos elaborada por Richard Feynman.
+    
+    Args:
+        conceito: O conceito a ser explicado.
+    
+    Returns:
+        Uma explicação simplificada da técnica de estudos.
+    """
+    explicacao = "Richard Feynman, famoso cientista e ganhador do Nobel, desenvolveu uma técnica de estudos única que envolve ensinar o conceito como se estivesse explicando para uma criança. O objetivo é simplificar o conceito ao máximo, garantindo que você entenda profundamente o assunto. Aqui está uma explicação simplificada do conceito '" + conceito + "':\n\n"
+    
+    # Aqui você pode adicionar uma explicação simplificada do conceito, utilizando analogias e uma linguagem acessível
+    explicacao_simplificada = "Explicação simplificada do conceito: " + conceito
+
+    return explicacao + explicacao_simplificada
 ```
 ### TOME NOTAS
 * Caderno de erros
@@ -67,7 +127,30 @@ relatório de aprendizado ao final de cada conversa
 * Guardar o que aprendeu e como aprendeu, para ter um ponto de partida melhor na próxima conversa, é muito importante, além disso; datas, tempo de resposta e capacidade de memorização, são ótimos dados para entregar a profissionais de saúde e de aprendizado, para saber se há algum distúrbio de aprendizado, ou doenças mentais, afinal, o diagnóstico antecipado é sempre benéfico, podendo haver tratamento, ou até cura para certos problemas.
 
 ```bash
-Código
+def tomar_notas():
+    """Explica a importância de tomar notas durante o processo de aprendizado."""
+    explicacao = "Explorar suas fraquezas é uma parte crucial do processo de aprendizado. Tome notas do que errou e tente novamente. Aqui estão algumas dicas para tomar notas eficazes:\n\n"
+    
+    # Aqui você pode adicionar algumas dicas sobre como tomar notas de forma eficaz
+    dicas_notas = "- Mantenha suas anotações organizadas por tópicos.\n- Use técnicas como diagramas, listas e esquemas para visualizar informações.\n- Revise suas notas regularmente para reforçar a aprendizagem."
+    
+    return explicacao + dicas_notas
+
+
+def gerar_relatorio_aprendizado(historico_conversa):
+    """Gera um relatório resumindo o aprendizado da conversa.
+    
+    Args:
+        historico_conversa: O histórico da conversa com o usuário.
+    
+    Returns:
+        Um relatório de aprendizado.
+    """
+    # Aqui você pode adicionar a lógica para gerar o relatório de aprendizado com base no histórico da conversa
+    # Por exemplo, você pode incluir informações como datas, tempo de resposta e capacidade de memorização
+    relatorio = "Relatório de aprendizado:\n\n" + historico_conversa
+    
+    return relatorio
 ```
 
 ## Inspirações para esse projeto
